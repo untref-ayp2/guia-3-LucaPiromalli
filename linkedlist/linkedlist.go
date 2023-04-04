@@ -183,3 +183,12 @@ func (l *LinkedList[T]) Size() int {
 	}
 	return position
 }
+
+func concatenarListas[T comparable](l1 LinkedList[T], l2 LinkedList[T]) LinkedList[T] {
+	if l1.head == nil {
+		return l2
+	}
+	l1.tail.next = l2.head
+	l1.tail = l2.tail
+	return l1
+}
